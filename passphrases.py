@@ -39,22 +39,17 @@ def pass_phrases(
     number_phrases: how many pass phrases to generate
     prints: string of pass phrases
     """
-    number_random_integers_needed = (
-        number_words_in_phrase * number_phrases)
     # The last word in the list is the
     # max for our random integer.
     integer_max = len(word_list)
     # start with the first (0th) word
     integer_min = 0
-    # SystemRandom is a cryptographically secure way
-    # to generate random numbers.
-    random_ints = [random.SystemRandom().randint(integer_min, integer_max)
-        for _ in range(number_random_integers_needed)]
-    int_index = 0
     for _ in range(number_phrases):
         for _ in range(number_words_in_phrase):
-            print word_list[random_ints[int_index]],
-            int_index += 1
+            # SystemRandom is a cryptographically secure way
+            # to generate random numbers.
+            print word_list[random.SystemRandom().randint(
+                integer_min, integer_max)],
         print
 
 
